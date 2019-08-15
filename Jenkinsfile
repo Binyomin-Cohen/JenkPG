@@ -1,21 +1,19 @@
 pipeline {
     agent { docker { image 'python:3.5.1' } }
-    stages { 
-        stage('Deploy - Staging') {
+    stages {
+        stage('Build') {
             steps {
-                echo 'hello'
+                echo 'Building'
             }
         }
-
-        stage('Sanity check') {
+        stage('Test') {
             steps {
-                input "Does the staging environment look ok?"
+                input 'Testing'
             }
         }
-
-        stage('Deploy - Production') {
+        stage('Deploy') {
             steps {
-                echo 'deploying to prod'
+                echo 'Deploying'
             }
         }
     }
