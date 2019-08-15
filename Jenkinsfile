@@ -1,6 +1,7 @@
 pipeline {
     agent { docker { image 'python:3.5.1' } }
-    stage('Deploy - Staging') {
+    stages { 
+        stage('Deploy - Staging') {
             steps {
                 echo 'hello'
             }
@@ -17,4 +18,5 @@ pipeline {
                 echo 'deploying to prod'
             }
         }
+    }
 }
